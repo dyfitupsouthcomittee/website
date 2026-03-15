@@ -1,20 +1,235 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
 body{
-font-family: Arial;
-background:#f4f4f4;
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:40px 20px;
+background:linear-gradient(90deg,#ff0000,#8b0000);
+box-shadow:0 0 30px red;
+animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 20px red;}
+to{box-shadow:0 0 60px red;}
+}
+
+header h1{
+font-size:2.5rem;
+letter-spacing:2px;
+}
+
+header p{
+margin-top:10px;
+opacity:0.9;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+text-align:center;
+margin:40px 20px;
+}
+
+.whatsapp a{
+background:#ff0000;
+padding:15px 30px;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-size:18px;
+transition:0.3s;
+box-shadow:0 0 20px red;
+}
+
+.whatsapp a:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px red;
+}
+
+/* QR */
+
+.qr-section{
+text-align:center;
+margin:40px;
+}
+
+.qr-section img{
+width:200px;
+border-radius:15px;
+box-shadow:0 0 30px red;
+transition:0.5s;
+}
+
+.qr-section img:hover{
+transform:scale(1.1) rotate(3deg);
+}
+
+/* COMMITTEE */
+
+.committee{
+padding:40px 20px;
 text-align:center;
 }
 
-.card{
-background:white;
-padding:20px;
-width:300px;
-margin:auto;
-margin-top:100px;
-border-radius:10px;
-box-shadow:0 0 10px gray;
+.committee h2{
+margin-bottom:30px;
+font-size:2rem;
+color:#ff4d4d;
 }
 
-.profile{
+/* CARD GRID */
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:1000px;
+margin:auto;
+}
+
+/* CARD */
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,0,0,0.3);
+padding:25px;
+border-radius:20px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px red;
+}
+
+/* ANIMATED BORDER */
+
+.card::before{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(
+0deg,
+transparent,
+transparent,
+red,
+transparent,
+transparent
+);
+animation:rotate 6s linear infinite;
+}
+
+.card::after{
+content:"";
+position:absolute;
+inset:2px;
+background:#111;
+border-radius:18px;
+}
+
+.card-content{
+position:relative;
+z-index:2;
+}
+
+.card h3{
+color:#ff4d4d;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:10px;
+}
+
+/* CALL BUTTON */
+
+.call-btn{
+display:inline-block;
+padding:8px 18px;
+background:#ff0000;
+color:white;
+border-radius:20px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.call-btn:hover{
+background:white;
+color:red;
+}
+
+/* ROTATE */
+
+@keyframes rotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#111;
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+header h1{
+font-size:1.8rem;
+}
+
+.qr-section img{
+width:160px;
+}
+
+  /* LOGO */
+
+.logo-container{
+text-align:center;
+margin-bottom:15px;
+}
+
+.logo{
 width:120px;
-border-radius:50%;
+filter:drop-shadow(0 0 15px red);
+animation:logoPulse 3s infinite;
+}
+
+@keyframes logoPulse{
+0%{
+transform:scale(1);
+}
+50%{
+transform:scale(1.08);
+}
+100%{
+transform:scale(1);
+}
+}
+
 }
