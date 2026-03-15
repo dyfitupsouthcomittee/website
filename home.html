@@ -1,35 +1,291 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>DYFI South Committee</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DYFI South Committee Tiruppur</title>
 
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+text-align:center;
+padding:40px 20px;
+background:linear-gradient(90deg,#ff0000,#8b0000);
+box-shadow:0 0 30px red;
+animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+from{box-shadow:0 0 20px red;}
+to{box-shadow:0 0 60px red;}
+}
+
+header h1{
+font-size:2.5rem;
+letter-spacing:2px;
+}
+
+header p{
+margin-top:10px;
+opacity:0.9;
+}
+
+/* WHATSAPP SECTION */
+
+.whatsapp{
+text-align:center;
+margin:40px 20px;
+}
+
+.whatsapp a{
+background:#ff0000;
+padding:15px 30px;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-size:18px;
+transition:0.3s;
+box-shadow:0 0 20px red;
+}
+
+.whatsapp a:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px red;
+}
+
+/* QR CODE */
+
+.qr-section{
+text-align:center;
+margin:40px;
+}
+
+.qr-section img{
+width:200px;
+border-radius:15px;
+box-shadow:0 0 30px red;
+transition:0.5s;
+}
+
+.qr-section img:hover{
+transform:scale(1.1) rotate(3deg);
+}
+
+/* COMMITTEE SECTION */
+
+.committee{
+padding:40px 20px;
+text-align:center;
+}
+
+.committee h2{
+margin-bottom:30px;
+font-size:2rem;
+color:#ff4d4d;
+}
+
+/* CARDS */
+
+.card-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,0,0,0.3);
+padding:25px;
+border-radius:20px;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px red;
+}
+
+/* animated border */
+
+.card::before{
+content:"";
+position:absolute;
+top:-50%;
+left:-50%;
+width:200%;
+height:200%;
+background:linear-gradient(
+0deg,
+transparent,
+transparent,
+red,
+transparent,
+transparent
+);
+transform:rotate(0deg);
+animation:rotate 6s linear infinite;
+}
+
+.card::after{
+content:"";
+position:absolute;
+inset:2px;
+background:#111;
+border-radius:18px;
+}
+
+.card-content{
+position:relative;
+z-index:2;
+}
+
+.card h3{
+color:#ff4d4d;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:10px;
+}
+
+.call-btn{
+display:inline-block;
+padding:8px 18px;
+background:#ff0000;
+color:white;
+border-radius:20px;
+text-decoration:none;
+transition:0.3s;
+}
+
+.call-btn:hover{
+background:white;
+color:red;
+}
+
+/* rotation animation */
+
+@keyframes rotate{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:40px;
+background:#111;
+color:#aaa;
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+header h1{
+font-size:1.8rem;
+}
+
+.qr-section img{
+width:160px;
+}
+
+}
+
+</style>
+
+</head>
 <body>
 
 <header>
 <h1>DYFI South Committee</h1>
-<p>Democratic Youth Movement</p>
+<p>Tiruppur District</p>
 </header>
 
-<section class="about">
-<h2>About Us</h2>
-<p>
-The Democratic Youth Federation of India works for youth rights,
-social justice and equality.
-</p>
+<section class="whatsapp">
+<a href="https://chat.whatsapp.com/JAC418ejA6a1SSVuFV6H6E?mode=gi_t" target="_blank">
+Join WhatsApp Group
+</a>
 </section>
 
-<section class="members">
+<section class="qr-section">
+<h2>Scan QR Code to Join</h2>
+<br>
+<img src="qr-code.png" alt="WhatsApp QR Code">
+</section>
+
+<section class="committee">
+
 <h2>Committee Members</h2>
 
+<div class="card-container">
+
 <div class="card">
-<img src="1773136989997.png">
-<h3>Natheesh</h3>
-<p>Committee Member</p>
+<div class="card-content">
+<h3>President</h3>
+<p>Chellamuthu</p>
+<p>📞 9976236752</p>
+<a class="call-btn" href="tel:9976236752">Call</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Secretary</h3>
+<p>Mounish Kannan</p>
+<p>📞 6380734190</p>
+<a class="call-btn" href="tel:6380734190">Call</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Treasurer</h3>
+<p>Kalkiraj</p>
+<p>📞 9500427215</p>
+<a class="call-btn" href="tel:9500427215">Call</a>
+</div>
+</div>
+
+<div class="card">
+<div class="card-content">
+<h3>Blood Donate Club Convener</h3>
+<p>Natheesh</p>
+<p>📞 8098263865</p>
+<a class="call-btn" href="tel:8098263865">Call</a>
+</div>
+</div>
+
 </div>
 
 </section>
+
+<footer>
+<p>© 2026 DYFI South Committee Tiruppur</p>
+</footer>
 
 </body>
 </html>
