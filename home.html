@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -13,22 +13,26 @@
 
 <header>
 
-<div class="logo-container">
-<img src="dyfi-logo.png" alt="DYFI Logo" class="logo">
-</div>
+<div class="hero-logo">
+<img src="dyfi-logo.png" alt="DYFI Tiruppur South Committee Logo">
+</div>  
 
+<div class="flag-container">
+<img src="dyfi-flag.png" class="flag">
+</div>
+<section class="parallax">
 <h1>DYFI South Committee</h1>
 <p>Tiruppur District</p>
-
+</section>
 </header>
 
-<section class="whatsapp">
+<section class="whatsapp reveal ">
 <a href="https://chat.whatsapp.com/JAC418ejA6a1SSVuFV6H6E?mode=gi_t" target="_blank">
 Join WhatsApp Group
 </a>
 </section>
 
-<section class="qr-section">
+<section class="qr-section reveal-left">
 
 <h2>Scan QR Code to Join</h2>
 
@@ -36,15 +40,15 @@ Join WhatsApp Group
 
 </section>
 
-<section class="committee">
+<section class="committee reveal-right">
 
 <h2>Committee Members</h2>
 
 <div class="card-container">
 
-<div class="card">
+<div class="card reveal">
 <div class="card-content">
-<h3>President</h3>
+<h3>Leader</h3>
 <p>Chellamuthu</p>
 <p>📞 9976236752</p>
 <a class="call-btn" href="tel:9976236752">Call</a>
@@ -89,4 +93,100 @@ Join WhatsApp Group
 </footer>
 
 </body>
+
+<canvas id="particles"></canvas>
+
+<script>
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 120; i++) {
+particles.push({
+x: Math.random()*canvas.width,
+y: Math.random()*canvas.height,
+size: Math.random()*3,
+speedX: (Math.random()-0.5)*1,
+speedY: (Math.random()-0.5)*1
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+ctx.fillStyle="red";
+
+particles.forEach(p=>{
+p.x+=p.speedX;
+p.y+=p.speedY;
+
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.size,0,Math.PI*2);
+ctx.fill();
+});
+
+requestAnimationFrame(animate);
+}
+
+animate();
+
+
+function reveal(){
+
+let reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight = window.innerHeight;
+let elementTop = reveals[i].getBoundingClientRect().top;
+let visiblePoint = 100;
+
+if(elementTop < windowHeight - visiblePoint){
+
+reveals[i].classList.add("active");
+
+}
+
+}
+
+}
+
+window.addEventListener("scroll", reveal);
+
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+card.addEventListener("mousemove", e => {
+
+const rect = card.getBoundingClientRect();
+const x = e.clientX - rect.left;
+const y = e.clientY - rect.top;
+
+const centerX = rect.width/2;
+const centerY = rect.height/2;
+
+const rotateX = (y-centerY)/10;
+const rotateY = (centerX-x)/10;
+
+card.style.transform =
+`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+});
+
+card.addEventListener("mouseleave", ()=>{
+
+card.style.transform="rotateX(0) rotateY(0)";
+
+});
+
+});
+
+
+</script>
 </html>
